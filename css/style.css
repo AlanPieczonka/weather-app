@@ -27,6 +27,7 @@ body {
 .row {
     max-width: 1440px;
     margin: 0 auto;  /*margin: 0 auto;*/
+
 }
 
 section {
@@ -76,24 +77,27 @@ header{
     background-color: #336E7B;
 }
 
-.ikony{
-    position: relative;
-    margin-bottom: 50px;
+.info-f{
+    margin-top: 40px;
+    color: black;
+    font-weight: 500;
+}
+
+.ikona{
+    color: white;
+    font-size: 68px;
+    text-align: center;
+    margin-left: 47%;
 }
 
 
 
-
-.chmurka{
-    font-size: 96px;
-    color: white;
-    position: absolute;
-    left: 30%;
+button{
+    display: block;
+    margin-top: 2%;
+    margin-left: 45.85%;
     
 }
-
-
-
 
 
 
