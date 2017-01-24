@@ -58,7 +58,6 @@ $(document).ready(function(){
 function renderHTML(data){
     console.log("Render function works");
     
-    
     //$(".ikona").addClass( "wi-thunderstorm" );//thunderstorm
     //(".ikona").addClass("wi-day-sunny"); //clear sky
     //$(".ikona").addClass("wi-sleet"); //drizzle
@@ -66,7 +65,6 @@ function renderHTML(data){
     //$(".ikona").addClass( "wi-snow" );//snow
     //$(".ikona").addClass( "wi-cloudy" );//few clouds
     
-
     var htmlString = "";
     
     htmlString += "Temperature [K] : " + data.main.temp +  " Lon: " + data.coord.lon + " Lat: " + data.coord.lat +" Name: " + data.name + " Country: " + data.sys.country + " Wind Speed: " + data.wind.speed + " Main " + data.weather[0].main;
@@ -76,10 +74,11 @@ function renderHTML(data){
     //CITY AND TEMP CONFIG//
     
     var temp = data.main.temp;
-    var ct = data.name;
+    var city_name = data.name;
     
     $(".temperatura").html(convertKelvinToCelsius(temp));
-    $(".info-f").html(ct);
+    $(".info-f").html(city_name);
+    $(".info-main").html(data.weather[0].main);
     
     //CITY AND TEMP CONFIG//
     
