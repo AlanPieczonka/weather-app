@@ -72,7 +72,73 @@ function renderHTML(data){
     htmlString += "Temperature [K] : " + data.main.temp +  " Lon: " + data.coord.lon + " Lat: " + data.coord.lat +" Name: " + data.name + " Country: " + data.sys.country + " Wind Speed: " + data.wind.speed + " Main " + data.weather[0].main;
         
     console.log("From JSON " + htmlString);
+    
+    //CITY AND TEMP CONFIG//
+    
+    var temp = data.main.temp;
+    var ct = data.name;
+    
+    $(".temperatura").html(convertKelvinToCelsius(temp));
+    $(".info-f").html(ct);
+    
+    //CITY AND TEMP CONFIG//
+    
+    //SWITCH ICON CONFIG//
+    
+    switch(data.weather[0].main) {
+    case "Thunderstorm":
+        $(".ikona").addClass( "wi-thunderstorm" );  
+        break;
+    case "Clear":
+        $(".ikona").addClass("wi-day-sunny"); 
+        break;
+    case "Drizzle":
+        $(".ikona").addClass("wi-sleet"); 
+        break;
+    case "Rain":
+        $(".ikona").addClass("wi-showers"); 
+        break;
+    case "Snow":
+        $(".ikona").addClass("wi-snow");
+        break;
+    case "Clouds":
+        $(".ikona").addClass("wi-cloudy");
+        break;
+    case "Extreme":
+        $(".ikona").addClass("wi-meteor");
+    default:
+        console.log("Deafault");
 }
+    
+    //SWITCH ICON CONFIG//
+
+   
+
+}
+
+
+function convertKelvinToCelsius(kelvin) {
+	if (kelvin < (0)) {
+		return 'below absolute zero (0 K)';
+	} else {
+		return (Math.round(kelvin-273.15)) + "°C";
+	}
+}
+
+
+
+function convertCelsiusToFahrenheit(celcius) {
+	
+    return (celcius+273.15) + "&#8451";
+
+}
+
+function convertFahrenheitToCelsius(fahrenheit){
+    return "celcius";
+}
+
+
+
 
 
 //https://openweathermap.org/weather-conditions
