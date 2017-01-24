@@ -58,9 +58,21 @@ $(document).ready(function(){
 function renderHTML(data){
     console.log("Render function works");
     
+    
+    //$(".ikona").addClass( "wi-thunderstorm" );//thunderstorm
+    //(".ikona").addClass("wi-day-sunny"); //clear sky
+    //$(".ikona").addClass("wi-sleet"); //drizzle
+    //$(".ikona").addClass( "wi-showers" );//shower rain
+    //$(".ikona").addClass( "wi-snow" );//snow
+    //$(".ikona").addClass( "wi-cloudy" );//few clouds
+    
+
     var htmlString = "";
     
     htmlString += "Temperature [K] : " + data.main.temp +  " Lon: " + data.coord.lon + " Lat: " + data.coord.lat +" Name: " + data.name + " Country: " + data.sys.country + " Wind Speed: " + data.wind.speed + " Main " + data.weather[0].main;
         
     console.log("From JSON " + htmlString);
 }
+
+
+//https://openweathermap.org/weather-conditions
