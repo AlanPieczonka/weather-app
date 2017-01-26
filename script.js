@@ -74,7 +74,7 @@ function renderHTML(data){ //main function that renders HTML ;)
     var city_name = data.name;
     
     
-    $(".temperatura").html(convertKelvinToCelsius(temp));
+    $(".temperature").html(convertKelvinToCelsius(temp));
     $(".info-f").html(city_name);
     $(".info-main").html(data.weather[0].main);
     
@@ -83,93 +83,67 @@ function renderHTML(data){ //main function that renders HTML ;)
     
     
     
-    //SWITCH ICON CONFIG//
+        //SWITCH ICON CONFIG//
     
-    switch(data.weather[0].main) {
-    case "Thunderstorm":
-        $(".ikona").addClass( "wi-thunderstorm" );  
-        break;
-    case "Clear":
-        $(".ikona").addClass("wi-day-sunny"); 
-        break;
-    case "Drizzle":
-        $(".ikona").addClass("wi-sleet"); 
-        break;
-    case "Rain":
-        $(".ikona").addClass("wi-showers"); 
-        break;
-    case "Snow":
-        $(".ikona").addClass("wi-snow");
-        break;
-    case "Clouds":
-        $(".ikona").addClass("wi-cloudy");
-        break;
-    case "Extreme":
-        $(".ikona").addClass("wi-meteor");
-    case "Mist":
-        $(".ikona").addClass("wi-fog");
-    default:
-        console.log("Deafault");
-}
+        switch(data.weather[0].main) {
+        case "Thunderstorm":
+            $(".icon").addClass( "wi-thunderstorm" );  
+            break;
+        case "Clear":
+            $(".icon").addClass("wi-day-sunny"); 
+            break;
+        case "Drizzle":
+            $(".icon").addClass("wi-sleet"); 
+            break;
+        case "Rain":
+            $(".icon").addClass("wi-showers"); 
+            break;
+        case "Snow":
+            $(".icon").addClass("wi-snow");
+            break;
+        case "Clouds":
+            $(".icon").addClass("wi-cloudy");
+            break;
+        case "Extreme":
+            $(".icon").addClass("wi-meteor");
+        case "Mist":
+            $(".icon").addClass("wi-fog");
+        default:
+            console.log("Deafault");
+    }
     
-    //SWITCH ICON CONFIG//
-
-   
-
 }
 
+//CONVERT FUNCTIONS
 
 function convertKelvinToCelsius(kelvin) {
-	if (kelvin < (0)) {
-		return 'below absolute zero (0 K)';
-	} else {
 		return (Math.round(kelvin-273.15)) + "°C";
-	}
+}
+
+function convertCelsiusToFahrenheit(celsius) {
+    return (Math.round(9/5*celsius + 32)) + "°F";
 }
 
 
 
-function convertCelsiusToFahrenheit(celcius) {
-    return (Math.round(9/5*celcius + 32)) + "°F";
-}
-
-
-
-function toButton(temperatura_z){
+function toButton(temp_celsius){
     
-    var celsius = true;
+    var celsius_bool = true;
+    
      $("button").on("click", function(){
-    console.log("ONCLICK");
-         
-         
-         console.log("temperatura z" + temperatura_z);
-         
-     
-         
-     if (celsius === false){
-         console.log("Celcius daje false");
-         $(".temperatura").html((Math.round(temperatura_z)) + "°C");
-         celsius = true;
-     }     
-         
-         
-     else if(celsius===true){
-         
-         
-         $(".temperatura").html(convertCelsiusToFahrenheit(temperatura_z));
 
-         console.log("Celcius daje true " + temperatura_z );
-         //zamień na fahrenheita
-         celsius = false;
-     }
-    
-    
-         
-});
-    
+        if(celsius_bool){ //celsius === true;
+             //change to Fahrenheit
+             $(".temperature").html(convertCelsiusToFahrenheit(temp_celsius));
+             celsius_bool = false;
+         }
+
+         else if (celsius_bool===false){
+             $(".temperature").html((Math.round(temp_celsius)) + "°C");
+             celsius_bool = true;
+         }      
+});  
     
 }
-
-
 
 //https://openweathermap.org/weather-conditions
