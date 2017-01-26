@@ -51,6 +51,9 @@ $(document).ready(function(){
             console.log("Connection lost");
         }
     }
+    
+    
+   
       
 });
 
@@ -105,6 +108,8 @@ function renderHTML(data){
         break;
     case "Extreme":
         $(".ikona").addClass("wi-meteor");
+    case "Mist":
+        $(".ikona").addClass("wi-fog");
     default:
         console.log("Deafault");
 }
@@ -137,7 +142,22 @@ function convertFahrenheitToCelsius(fahrenheit){
 }
 
 
+ $("button").on("click", function(){
+    console.log("ONCLICK");
+     var celsius = true;
+     if(celsius===true){
+         console.log("Celcius daje true");
+         //zamień na fahrenheita
+         celsius = false;
+     }
+     else{
+         console.log("Celcius daje false");
+         //zamień na celsiusa
+         celcius = true;
+     }
+    
+});
 
-
+//dodać celcius bool = true;
 
 //https://openweathermap.org/weather-conditions
