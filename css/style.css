@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 
 * {
     margin: 0;
@@ -29,7 +28,6 @@ body {
 .row {
     max-width: 1440px;
     margin: 0 auto;  /*margin: 0 auto;*/
-
 }
 
 section {
@@ -45,6 +43,9 @@ h1{
     margin-top: -20px;
     text-align: center;
     color: aliceblue;
+    font-weight: 300;
+}
+h2{
     font-weight: 300;
 }
 
@@ -97,9 +98,7 @@ header{
 button{
     display: block;
     margin-top: 2%;
-    margin-left: 44.72%;
-    
-      
+    margin-left: 44.72%;  
 }
 
 button {
@@ -122,8 +121,6 @@ button:active {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-
-
 
 /* FOOTER */
 footer{

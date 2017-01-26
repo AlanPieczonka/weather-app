@@ -3,7 +3,6 @@ console.log("Main JS works!");
 $(document).ready(function(){
    console.log("The JQuery ready function works too!"); 
     
-    
     if(navigator.geolocation){
         
        navigator.geolocation.getCurrentPosition(
@@ -32,9 +31,10 @@ $(document).ready(function(){
     function mainJson(lat, lng)
     {
         var ourRequest = new XMLHttpRequest();
-    
+        
+        //diffrent JSON based on user geo location
         ourRequest.open('GET', 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lng + '&appid=c1b77262ffa7f5e4ad709e332c64bbfa');
-
+        
         ourRequest.send();
 
         ourRequest.onload = function(){
@@ -58,16 +58,10 @@ $(document).ready(function(){
 });
 
 
-function renderHTML(data){
+function renderHTML(data){ //main function that renders HTML ;)
     console.log("Render function works");
     
-    //$(".ikona").addClass( "wi-thunderstorm" );//thunderstorm
-    //(".ikona").addClass("wi-day-sunny"); //clear sky
-    //$(".ikona").addClass("wi-sleet"); //drizzle
-    //$(".ikona").addClass( "wi-showers" );//shower rain
-    //$(".ikona").addClass( "wi-snow" );//snow
-    //$(".ikona").addClass( "wi-cloudy" );//few clouds
-    
+    //Just for info
     var htmlString = "";
     
     htmlString += "Temperature [K] : " + data.main.temp +  " Lon: " + data.coord.lon + " Lat: " + data.coord.lat +" Name: " + data.name + " Country: " + data.sys.country + " Wind Speed: " + data.wind.speed + " Main " + data.weather[0].main;
@@ -79,16 +73,15 @@ function renderHTML(data){
     var temp = data.main.temp;
     var city_name = data.name;
     
-    console.log("TEMP " + temp);
-    var clc = temp - 273.15;
-    console.log("CLC" + clc);
-    przekazanie(clc);
     
     $(".temperatura").html(convertKelvinToCelsius(temp));
     $(".info-f").html(city_name);
     $(".info-main").html(data.weather[0].main);
     
-    //CITY AND TEMP CONFIG//
+    var clc = temp - 273.15; //it's the celsius temperature (JSON temp is Kelvin)
+    toButton(clc);
+    
+    
     
     //SWITCH ICON CONFIG//
     
@@ -137,20 +130,13 @@ function convertKelvinToCelsius(kelvin) {
 
 
 function convertCelsiusToFahrenheit(celcius) {
-	
-   
-
-
-return (Math.round(9/5*celcius + 32)) + "°F";
-//return (celcius+273.15) + "F";
-
+    return (Math.round(9/5*celcius + 32)) + "°F";
 }
 
-function convertFahrenheitToCelsius(fahrenheit){
-    return "celcius";
-}
 
-function przekazanie(temperatura_z){
+
+function toButton(temperatura_z){
+    
     var celsius = true;
      $("button").on("click", function(){
     console.log("ONCLICK");
@@ -185,6 +171,5 @@ function przekazanie(temperatura_z){
 }
 
 
-//dodać celcius bool = true;
 
 //https://openweathermap.org/weather-conditions
