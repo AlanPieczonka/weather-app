@@ -79,6 +79,11 @@ function renderHTML(data){
     var temp = data.main.temp;
     var city_name = data.name;
     
+    console.log("TEMP " + temp);
+    var clc = temp - 273.15;
+    console.log("CLC" + clc);
+    przekazanie(clc);
+    
     $(".temperatura").html(convertKelvinToCelsius(temp));
     $(".info-f").html(city_name);
     $(".info-main").html(data.weather[0].main);
@@ -133,7 +138,11 @@ function convertKelvinToCelsius(kelvin) {
 
 function convertCelsiusToFahrenheit(celcius) {
 	
-    return (celcius+273.15) + "&#8451";
+   
+
+
+return (Math.round(9/5*celcius + 32)) + "°F";
+//return (celcius+273.15) + "F";
 
 }
 
@@ -141,22 +150,40 @@ function convertFahrenheitToCelsius(fahrenheit){
     return "celcius";
 }
 
-
- $("button").on("click", function(){
+function przekazanie(temperatura_z){
+    var celsius = true;
+     $("button").on("click", function(){
     console.log("ONCLICK");
-     var celsius = true;
-     if(celsius===true){
-         console.log("Celcius daje true");
+         
+         
+         console.log("temperatura z" + temperatura_z);
+         
+     
+         
+     if (celsius === false){
+         console.log("Celcius daje false");
+         $(".temperatura").html((Math.round(temperatura_z)) + "°C");
+         celsius = true;
+     }     
+         
+         
+     else if(celsius===true){
+         
+         
+         $(".temperatura").html(convertCelsiusToFahrenheit(temperatura_z));
+
+         console.log("Celcius daje true " + temperatura_z );
          //zamień na fahrenheita
          celsius = false;
      }
-     else{
-         console.log("Celcius daje false");
-         //zamień na celsiusa
-         celcius = true;
-     }
     
+    
+         
 });
+    
+    
+}
+
 
 //dodać celcius bool = true;
 
