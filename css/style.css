@@ -89,20 +89,19 @@ header{
 .icon{
     color: white;
     font-size: 68px;
-    text-align: center;
-    margin-left: 47%;
-    margin-bottom: 1.5%;
+    padding-left: 46.5%;
+    
 }
 
 
 button{
     display: block;
     margin-top: 2%;
-    margin-left: 44.72%;  
+    margin-left: 44.3%;  
 }
 
 button {
-  width: 10%;
+  width: 150px;
   height: 60px;
   font-size: 22px;
   color: white;
@@ -131,3 +130,4 @@ footer{
 
 
 /*ICONS*/
+

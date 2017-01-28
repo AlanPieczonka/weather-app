@@ -1,3 +1,6 @@
+//I know code isn't great, but this is my first real project using JS, JSON and JQuery together. It was fun. The project is one of the "Freecodecamp" challenges// 
+
+
 console.log("Main JS works!");
 
 $(document).ready(function(){
@@ -108,6 +111,8 @@ function renderHTML(data){ //main function that renders HTML ;)
             $(".icon").addClass("wi-meteor");
         case "Mist":
             $(".icon").addClass("wi-fog");
+        case "Haze":
+            $(".icon").addClass("wi-day-haze");
         default:
             console.log("Deafault");
     }
